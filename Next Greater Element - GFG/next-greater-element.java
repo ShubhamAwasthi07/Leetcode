@@ -34,17 +34,17 @@ class Solution
     public static long[] nextLargerElement(long[] arr, int n)
     { 
         // Your code here
-        long[] output = new long[n];
-        Arrays.fill(output , -1);
-        Stack<Integer> st = new Stack<>();
-        
-        for(int i = 0 ; i < n ; i++){
-            while(!st.empty() && arr[i] > arr[st.peek()]){
-                output[st.peek()] = arr[i];
-                st.pop();
-            }
-            st.push(i);
-        }
-        return output;
+       long[] output = new long[n];
+       Arrays.fill(output , -1);
+       Stack<Integer> st = new Stack<>();
+       
+       for(int i = 0; i < n; i++){
+           while(!st.empty() && arr[i] > arr[st.peek()]){
+               output[st.peek()] = arr[i];
+               st.pop();
+           }
+           st.push(i);
+       }
+       return output;
     } 
 }
