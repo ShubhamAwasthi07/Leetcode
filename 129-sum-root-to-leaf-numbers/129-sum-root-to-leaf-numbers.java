@@ -28,11 +28,17 @@ class Solution {
     public int sumNumbers(TreeNode root) {
         List<String> ans = new ArrayList<>();
         paths(root , "" , ans);
-        List<Integer> res = ans.stream().map(Integer::parseInt).collect(Collectors.toList());
-        int n = res.size();
+        // List<Integer> res = ans.stream().map(Integer::parseInt).collect(Collectors.toList());
+        // int n = res.size();
+        // int sum = 0;
+        // for(int i = 0 ; i < n ; i++){
+        //     sum = sum + res.get(i);
+        // }
+        // return sum;
         int sum = 0;
-        for(int i = 0 ; i < n ; i++){
-            sum = sum + res.get(i);
+        int n = ans.size();
+        for(int i = 0; i < n ; i++){
+            sum = sum + Integer.parseInt(ans.get(i));
         }
         return sum;
     }
