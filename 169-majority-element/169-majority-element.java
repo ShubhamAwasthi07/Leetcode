@@ -6,12 +6,12 @@ class Solution {
         for(int i = 0; i < n; i++){
             hm.put(nums[i] , hm.getOrDefault(nums[i] , 0) + 1);
         }
-        // int m = 0;
+        int max = 0;
         for(Integer c : hm.keySet()){
             if(hm.get(c) > Math.floor(n/2)){
-                return c;
+                max = Math.max(max , c);
             }
         }
-        return 0;
+        return max;
     }
 }
