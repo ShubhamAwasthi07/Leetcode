@@ -9,7 +9,7 @@ class Solution {
         
             
         for(int x : hm.keySet()){
-            if(k > 0 && hm.containsKey(x - k) || k == 0 && hm.get(x) > 1){
+            if(k > 0 && hm.containsKey(x + k) || k == 0 && hm.get(x) > 1){
                 count++;
             }
         }
