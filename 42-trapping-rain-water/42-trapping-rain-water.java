@@ -10,12 +10,23 @@ class Solution {
             leftmax[i] = Math.max(leftmax[i-1] , height[i-1]);
         }
         rightmax[n-1] = 0;
-        int ans = 0;
-        for(int i = n-2 ; i >= 0 ; i--){
+//         int ans = 0;
+//         for(int i = n-2 ; i >= 0 ; i--){
             
+//             rightmax[i] = Math.max(rightmax[i+1] , height[i+1]);
+//             int water = Math.min(leftmax[i] , rightmax[i]) - height[i];
+//             if(water > 0) ans += water;
+//         }
+//         return ans;
+        for(int i = n-2 ; i >= 0 ; i--){
             rightmax[i] = Math.max(rightmax[i+1] , height[i+1]);
+        }
+        int ans = 0;
+        for(int i = 1 ; i < n ; i++){
             int water = Math.min(leftmax[i] , rightmax[i]) - height[i];
-            if(water > 0) ans += water;
+            if(water > 0){
+                ans += water;
+            }
         }
         return ans;
     }
