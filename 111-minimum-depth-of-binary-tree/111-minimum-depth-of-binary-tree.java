@@ -17,11 +17,11 @@ class Solution {
     public int minDepth(TreeNode root) {
         if(root == null) return 0;
         if(root.left ==  null) {
-            int right = minDepth(root.right);
-            return 1 + right;
-        } if(root.right ==  null) {
-            int left = minDepth(root.left);
-            return 1 + left;
+            return 1 + minDepth(root.right);
+        } 
+        if(root.right ==  null) {
+            return 1 + minDepth(root.left);
+            
         }
        int left = minDepth(root.left);
        int right = minDepth(root.right);
