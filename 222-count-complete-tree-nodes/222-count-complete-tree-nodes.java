@@ -14,19 +14,11 @@
  * }
  */
 class Solution {
-    public void countNode(TreeNode root  , ArrayList<Integer>ans){
-        // ArrayList<Integer> ans = new ArrayList<>();
-        if(root == null) return;
-        ans.add(root.val);
-        countNode(root.left,ans);
-        countNode(root.right,ans);
-        // return ans;
-        
-    }
     public int countNodes(TreeNode root) {
-        ArrayList<Integer> ans = new ArrayList<>();
-        countNode(root,ans);
-        int a = ans.size();
-        return a;
+        if(root == null) return 0;
+        
+        int count = countNodes(root.left);
+        count = count + countNodes(root.right);
+        return 1 + count;
     }
 }
