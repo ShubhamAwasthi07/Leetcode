@@ -23,12 +23,15 @@ class Solution {
         return prev;
     }
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        
         if(head == null) return head;
-        // if(n == 1) return head.next;
         ListNode newHead = reverse(head);
+        
         if(n == 1) return reverse(newHead.next);
+        
         ListNode prev = null;
         ListNode temp = newHead;
+        
         for(int i = 1 ; i < n ; i++){
             prev = temp;
             temp = temp.next; 
