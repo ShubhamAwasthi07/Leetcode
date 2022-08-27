@@ -15,9 +15,8 @@
  */
 class Solution {
     public void path(TreeNode root , String s , List<String> ans){
-       
-        if(root == null) return;
         
+        if(root == null) return;
         if(root.left == null && root.right == null){
             String t = s + String.valueOf(root.val);
             ans.add(t);
@@ -26,13 +25,12 @@ class Solution {
         String t = s + String.valueOf(root.val) + "->";
         path(root.left , t , ans);
         path(root.right , t , ans);
-        
     }
     public List<String> binaryTreePaths(TreeNode root) {
-        
         List<String> ans = new ArrayList<>();
-        path(root , "" , ans);
+        path(root ,"",ans);
         return ans;
+        
         
     }
 }
