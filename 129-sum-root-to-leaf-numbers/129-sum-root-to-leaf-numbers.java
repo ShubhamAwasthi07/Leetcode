@@ -14,23 +14,23 @@
  * }
  */
 class Solution {
-    public void paths(TreeNode root , String s , List<String> ans){
-        if(root == null) return ;
+    public void path(TreeNode root , String s , List<String> ans){
+        
+        if(root == null) return;
         if(root.left == null && root.right == null){
             String t = s + String.valueOf(root.val);
             ans.add(t);
             return;
         }
         String t = s + String.valueOf(root.val);
-        paths(root.left , t , ans);
-        paths(root.right , t , ans);
+        path(root.left , t , ans);
+        path(root.right , t , ans);
     }
     public int sumNumbers(TreeNode root) {
         List<String> ans = new ArrayList<>();
-        paths(root , "" , ans);
-        
-        int sum = 0;
+        path(root , "", ans);
         int n = ans.size();
+        int sum = 0;
         for(int i = 0; i < n ; i++){
             sum = sum + Integer.parseInt(ans.get(i));
         }
