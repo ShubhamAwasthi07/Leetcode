@@ -14,24 +14,24 @@
  * }
  */
 class Solution {
-    public boolean getTarget(TreeNode root , int target , Set<Integer>set){
+    public boolean twoSum(TreeNode root , Set<Integer> set , int target){
         
         if(root == null) return false;
         
         if(set.contains(target - root.val)){
             return true;
-        }
-        else{
+        }else{
             set.add(root.val);
         }
-        boolean left = getTarget(root.left , target , set);
-        boolean right = getTarget(root.right , target , set);
+        boolean left = twoSum(root.left , set , target);
+        boolean right = twoSum(root.right , set , target);
         
         return left || right;
     }
     public boolean findTarget(TreeNode root, int k) {
         Set<Integer> set = new HashSet<>();
-        return getTarget(root , k , set);
+        
+        return twoSum(root , set , k);  
         
     }
 }
