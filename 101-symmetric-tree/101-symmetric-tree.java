@@ -17,15 +17,18 @@ class Solution {
     public boolean isSame(TreeNode p , TreeNode q){
         if(p == null && q == null) return true;
         if(p == null || q == null) return false;
-        if(p.val != q.val) return false;
         
+        if(p.val != q.val){
+            return false;
+        }
         boolean res = isSame(p.left , q.right);
         if(!res) return false;
+        
         res = isSame(p.right , q.left);
         return res;
     }
     public boolean isSymmetric(TreeNode root) {
         
-        return(isSame(root.left , root.right));
+        return (isSame(root.left , root.right));
     }
 }
