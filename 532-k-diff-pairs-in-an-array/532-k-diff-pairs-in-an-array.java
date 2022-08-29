@@ -7,9 +7,8 @@ class Solution {
             hm.put(nums[i] , hm.getOrDefault(nums[i] , 0) + 1);
         }
         
-            
-        for(int x : hm.keySet()){
-            if(k > 0 && hm.containsKey(x + k) || k == 0 && hm.get(x) > 1){
+        for(int val : hm.keySet()){
+            if((k > 0 && hm.containsKey(val + k)) || (k == 0 && hm.get(val) > 1)){
                 count++;
             }
         }
