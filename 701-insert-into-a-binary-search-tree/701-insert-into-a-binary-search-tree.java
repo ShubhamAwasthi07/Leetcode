@@ -15,16 +15,17 @@
  */
 class Solution {
     public TreeNode insertIntoBST(TreeNode root, int val) {
+        
         if(root == null){
             TreeNode temp = new TreeNode(val);
             return temp;
         }
-        else if(val > root.val){
-            root.right = insertIntoBST(root.right , val);
+        if(val > root.val){
+          root.right =  insertIntoBST(root.right , val);
         }
-        else{
-            root.left  = insertIntoBST(root.left , val);
-        }
+        else
+            root.left = insertIntoBST(root.left , val);
+        
         return root;
     }
 }
