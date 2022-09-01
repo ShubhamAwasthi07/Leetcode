@@ -8,7 +8,7 @@ class Solution {
         }
         
         for(int val : hm.keySet()){
-            if((k > 0 && hm.containsKey(val + k)) || (k == 0 && hm.get(val) > 1)){
+            if((k > 0 && hm.containsKey(val + k) || (k <= 0 && hm.get(val) > 1))){
                 count++;
             }
         }
