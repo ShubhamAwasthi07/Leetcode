@@ -1,49 +1,15 @@
 class Solution {
     public void rotate(int[][] matrix) {
-        for(int i = 0; i < matrix.length/2; i++){
-            work(matrix, i, matrix.length -1 - i);
-        }
-        return;
-    }
-    
-//     Does the rotation on a layer.
-    private void work(int[][] matrix, int start, int end){
-        int i1= start,j1 = start,i2 = end,j2 = start;
-        int icr1=1,jcr1=0,icr2=0,jcr2=1;
-        while(true){
-            if(i1 == start && j1 == end){
-                break;
-            }
-            swap(matrix, i1, j1, i2, j2);
-            if(i1 == end && j1 == start){
-                icr1 = 0;
-                jcr1 = 1;
-                icr2 = -1;
-                jcr2 = 0;
-            }
-            else if(i1 == end && j1 == end){
-                icr1 = -1;
-                jcr1 = 0;
-                icr2 = 0;
-                jcr2 = -1;
-            }
-            i1+=icr1;
-            j1+=jcr1;
-            i2+=icr2;
-            j2+=jcr2;
-        }
+        int n = matrix.length;
         
-    }
-    
-//     Swapping of two elements
-    private void swap(int matrix[][], int i1, int j1, int i2, int j2){
-        if(i1 == i2 && j1 == j2){
-            return;
+        for (int i = 0 ; i < n/2 ; i++){
+            for (int j = i ; j < n - i - 1 ; j++){
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[n - 1 - j][i];
+                matrix[n - 1 - j][i] = matrix[n - i - 1][n - 1 - j];
+                matrix[n - i - 1][n - 1 - j] = matrix[j][n - 1 - i];
+                matrix[j][n - 1 - i] = temp;
+            }
         }
-        matrix[i1][j1] = matrix[i1][j1] + matrix[i2][j2];
-        matrix[i2][j2] = matrix[i1][j1] - matrix[i2][j2];
-        matrix[i1][j1] = matrix[i1][j1] - matrix[i2][j2];
-        return;
     }
-    
 }
