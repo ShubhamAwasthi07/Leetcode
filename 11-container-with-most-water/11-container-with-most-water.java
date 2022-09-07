@@ -6,9 +6,10 @@ class Solution {
         int ans = 0;
         while(start < end){
             int area = Math.min(height[start] , height[end]) * (end - start);
-            ans = Math.max(ans , area);
+            ans = Math.max(area , ans);
             
             if(height[start] <= height[end]) start++;
+            
             else end--;
         }
         return ans;
