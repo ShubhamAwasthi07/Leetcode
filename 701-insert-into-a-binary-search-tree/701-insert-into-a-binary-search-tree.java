@@ -20,12 +20,13 @@ class Solution {
             TreeNode temp = new TreeNode(val);
             return temp;
         }
-        if(val > root.val){
-          root.right =  insertIntoBST(root.right , val);
-        }
-        else
-            root.left = insertIntoBST(root.left , val);
         
+        if(root.val < val){
+            root.right = insertIntoBST(root.right , val);
+        }
+        else{
+            root.left = insertIntoBST(root.left , val);
+        }
         return root;
     }
 }
