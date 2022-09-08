@@ -6,7 +6,6 @@ class Solution {
         int j = 0;
         int ans = Integer.MIN_VALUE;
         int countZero = 0;
-        
         while(j < n){
             if(nums[j] == 0){
                 countZero++;
@@ -18,9 +17,9 @@ class Solution {
                 }
                 i++;
             }
-            ans = Math.max(ans , j - i + 1);
-            j++;
+        ans = Math.max(ans , j - i + 1);
+        j++;
         }
-        return ans;
+       return ans;
     }
 }
