@@ -3,25 +3,23 @@ class Solution {
         
         int n = nums.length;
         int i = 0;
-        int ans = 0;
+        int j = 0;
+        int ans = Integer.MIN_VALUE;
+        int countZero = 0;
         
-        for(int j = 0 ; j < n ; j++){
+        while(j < n){
             if(nums[j] == 0){
-                k--;
+                countZero++;
             }
             
-            if(k >= 0){
-                ans = Math.max(ans , j - i + 1);
-                
-            }
-            else{
-                while(k < 0){
-                    if(nums[i] == 0){
-                        k++;
-                    }
-                    i++;
+            while(countZero > k){
+                if(nums[i] == 0){
+                    countZero--;
                 }
+                i++;
             }
+            ans = Math.max(ans , j - i + 1);
+            j++;
         }
         return ans;
     }
