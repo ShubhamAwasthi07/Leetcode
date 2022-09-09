@@ -15,20 +15,19 @@
  */
 class Solution {
     int maxLevel = 0;
-    public void rightSide(TreeNode root , int level , List<Integer> ans){
-        
-        if(root == null) return;
+    public void rightView(TreeNode root , int level , List<Integer> ans){
+        if(root == null)
+            return;
         if(level > maxLevel){
             ans.add(root.val);
             maxLevel = level;
         }
-        rightSide(root.right , level + 1 , ans);
-        rightSide(root.left , level + 1 , ans);
+         rightView(root.right ,level + 1, ans);
+         rightView(root.left ,level + 1, ans);
     }
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
-        rightSide(root , 1 , ans);
+        rightView(root ,1 , ans);
         return ans;
-        
     }
 }
