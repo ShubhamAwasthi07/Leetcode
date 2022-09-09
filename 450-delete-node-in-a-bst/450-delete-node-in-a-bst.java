@@ -14,9 +14,8 @@
  * }
  */
 class Solution {
-    
     public int findMin(TreeNode root){
-        if(root.left == null) return root.val;
+        if(root.left== null) return root.val;
         
         return findMin(root.left);
     }
@@ -30,27 +29,23 @@ class Solution {
             if(root.left == null && root.right == null)
                 return null;
             
-            // case 2
+            // case2
             if(root.left == null || root.right == null){
-                
                 if(root.left == null)
                     return root.right;
-                
+            
                 return root.left;
             }
             
-            // Case 3
-            
-            else{
-                int inorderSucc = findMin(root.right);
-                root.val = inorderSucc;
-                root.right = deleteNode(root.right , inorderSucc);
-            }  
-            
+            // case3
+            else {
+                int preorderSucc = findMin(root.right);
+                root.val = preorderSucc;
+                root.right = deleteNode(root.right , preorderSucc);
+            }
         }
-        else if(root.val > val) root.left = deleteNode(root.left , val);
-        else root.right = deleteNode(root.right , val);
-        
+        else if(val > root.val) root.right = deleteNode(root.right , val);
+        else root.left = deleteNode(root.left , val);
         return root;
     }
 }
