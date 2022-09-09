@@ -20,7 +20,6 @@ class Solution {
         
         if(root == null) 
             return 0;
-
         int left = depth(root.left);
         int right = depth(root.right);
         ans = Math.max(ans , left + right);
