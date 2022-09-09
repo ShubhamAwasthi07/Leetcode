@@ -15,12 +15,10 @@
  */
 class Solution {
     public boolean checkTree(TreeNode root) {
-        int sum = 0;
-        sum = root.left.val + root.right.val;
-        if(root.val == sum){
+        
+        if(root.val == root.left.val + root.right.val){
             return true;
         }
         return false;
-        
     }
 }
