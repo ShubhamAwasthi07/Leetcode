@@ -15,25 +15,29 @@
  */
 class Solution {
     int idx = 0;
-    public TreeNode solve(int[] inorder, int[] postorder , int start , int end){
-        if(start > end) return null;
+    
+    public TreeNode solve(int[] inorder , int[] postorder , int start , int end){
+        
         int pos = -1;
+        if(start > end) return null;
         for(int i = start ; i <= end ; i++){
-            if(postorder[idx] == inorder[i]){ 
+            if(postorder[idx] == inorder[i]){
                 pos = i;
                 break;
             }
         }
         TreeNode root = new TreeNode(postorder[idx]);
         idx--;
-        root.right = solve(inorder , postorder ,pos+1 , end);
-        root.left = solve(inorder , postorder ,start , pos-1);
+        root.right = solve(inorder , postorder , pos + 1 , end);
+        root.left = solve(inorder , postorder , start , pos - 1);
         
         return root;
+        
     }
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         int n = postorder.length;
-        this.idx = n-1;
-        return solve(inorder , postorder , 0 , n-1);
+        this.idx = n - 1;
+        
+        return solve(inorder , postorder , 0 , n  - 1);
     }
 }
