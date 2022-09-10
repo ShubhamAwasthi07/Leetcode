@@ -1,21 +1,26 @@
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
+        int n = nums.length;
         int length = Integer.MAX_VALUE;
-        int sum = 0;
-        int start = 0;
         
-        for(int end = 0; end < nums.length; end++){
-            sum += nums[end];    // increase window to get a target value
+        int start = 0;
+        int end = 0;
+        int sum = 0;
+        for(end = 0 ; end < n ; end++){
+            sum = sum + nums[end];
             
             while(sum >= target){
-                length = Math.min(length,end-start+1);  // compare minimum value
-                sum -= nums[start];   // remove value from start
-                start++;     // then shrink your window
+                length = Math.min(length , end - start + 1);
+                
+                sum -= nums[start];
+                start++;
             }
+            
         }
         if(length == Integer.MAX_VALUE){
             return 0;
         }
         return length;
+        
     }
 }
