@@ -9,12 +9,12 @@ class Solution {
             hm.put(s.charAt(i) , i);
         }
         
-       int max = 0;
+        int max = 0;
         int prev = -1;
         
         for(int i = 0 ; i < n ; i++){
-            max = Math.max(max , hm.get(s.charAt(i)));
-            
+           char ch = s.charAt(i);
+            max = Math.max(max , hm.get(ch));
             if(max == i){
                 ans.add(max - prev);
                 prev = max;
