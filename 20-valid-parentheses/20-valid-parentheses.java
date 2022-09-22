@@ -1,8 +1,10 @@
 class Solution {
+    
     private char open(char ch){
         if(ch == ')') return '(';
-        else if(ch == '}') return '{';
         else if(ch == ']') return '[';
+        else if(ch == '}') return '{';
+        
         return ' ';
     }
     public boolean isValid(String s) {
@@ -15,14 +17,11 @@ class Solution {
             if(ch == '(' || ch == '[' || ch == '{'){
                 st.push(ch);
             }
-            else{
-                if(!st.isEmpty() && st.peek() == open(ch)){
-                    st.pop();
-                }else{
-                    return false;
-                }
+            else {
+                if(!st.isEmpty() && st.peek() == open(ch)) st.pop();
+                else return false;
             }
         }
-        return st.empty();
+        return st.isEmpty();
     }
 }
