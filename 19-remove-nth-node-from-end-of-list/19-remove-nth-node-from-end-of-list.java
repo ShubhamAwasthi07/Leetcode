@@ -10,10 +10,10 @@
  */
 class Solution {
     public ListNode reverse(ListNode head){
-        ListNode curr = head;
+        ListNode curr;
         ListNode next , prev;
-        prev = next = null;
-        
+        curr = head;
+        next = prev = null;
         while(curr != null){
             next = curr.next;
             curr.next = prev;
@@ -23,21 +23,18 @@ class Solution {
         return prev;
     }
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        
         if(head == null) return head;
         ListNode newHead = reverse(head);
-        
+        ListNode prev , temp;
+        temp = newHead;
+        prev = null; 
         if(n == 1) return reverse(newHead.next);
-        
-        ListNode prev = null;
-        ListNode temp = newHead;
         
         for(int i = 1 ; i < n ; i++){
             prev = temp;
-            temp = temp.next; 
+            temp = temp.next;
         }
         prev.next = temp.next;
-        ListNode ans = reverse(newHead);
-        return ans;
+        return reverse(newHead);
     }
 }
