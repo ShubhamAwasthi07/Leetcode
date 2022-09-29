@@ -9,13 +9,16 @@ class Solution {
         
         int result = 0;
         boolean oddValueTaken = false;
+        
         for(Integer count : hm.values()){
-            if(count % 2 == 0)
+            if(count % 2 == 0){
                 result += count;
+            }
             else{
                 if(oddValueTaken){
                     result += count - 1;
-                }else{
+                }
+                else{
                     oddValueTaken = true;
                     result += count;
                 }
