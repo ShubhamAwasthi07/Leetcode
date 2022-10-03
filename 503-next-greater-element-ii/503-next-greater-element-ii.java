@@ -7,14 +7,17 @@ class Solution {
         
         Stack<Integer> st = new Stack<>();
         
-        for(int i = 0 ; i < n ; i++){
-            while(!st.isEmpty() && nums[i] > nums[st.peek()]){
-                output[st.peek()] = nums[i];
+        for(int i = 0 ; i < 2 * n ; i++){
+            
+            int idx = i % n;
+            while(!st.isEmpty() && nums[idx] > nums[st.peek()]){
+                output[st.peek()] = nums[idx];
                 st.pop();
             }
-            st.push(i);
+            st.push(idx);
         }
         
+        /*
         for(int i = 0 ; i < n ; i++){
             while(!st.isEmpty() && nums[i] > nums[st.peek()]){
                 output[st.peek()] = nums[i];
@@ -22,6 +25,7 @@ class Solution {
             }
             st.push(i);
         }
+        */
         return output;
     }
 }
