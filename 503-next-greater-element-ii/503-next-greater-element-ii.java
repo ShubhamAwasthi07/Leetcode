@@ -3,26 +3,24 @@ class Solution {
         
         int n = nums.length;
         int[] output = new int[n];
-        Stack<Integer> st = new Stack<Integer>();
         Arrays.fill(output , -1);
         
+        Stack<Integer> st = new Stack<>();
+        
         for(int i = 0 ; i < n ; i++){
-            int idx = i;
-            
-            while(!st.empty() && nums[idx] > nums[st.peek()]){
-                output[st.peek()] = nums[idx];
+            while(!st.isEmpty() && nums[i] > nums[st.peek()]){
+                output[st.peek()] = nums[i];
                 st.pop();
             }
-            st.push(idx);  
+            st.push(i);
         }
-         for(int i = 0 ; i < n ; i++){
-            int idx = i;
-            
-            while(!st.empty() && nums[idx] > nums[st.peek()]){
-                output[st.peek()] = nums[idx];
+        
+        for(int i = 0 ; i < n ; i++){
+            while(!st.isEmpty() && nums[i] > nums[st.peek()]){
+                output[st.peek()] = nums[i];
                 st.pop();
             }
-            st.push(idx);  
+            st.push(i);
         }
         return output;
     }
