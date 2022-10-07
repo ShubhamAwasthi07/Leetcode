@@ -18,9 +18,10 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode prev = null;
         ListNode curr = slow;
+        ListNode prev = null;
         ListNode next = null;
+        
         while(curr != null){
             next = curr.next;
             curr.next = prev;
@@ -30,10 +31,11 @@ class Solution {
         ListNode rev = prev;
         
         while(rev != null){
-            if(rev.val != head.val)
-                return false;
-            rev = rev.next;
-            head = head.next;
+            if(rev.val != head.val){ 
+               return false;
+            }
+             rev = rev.next;
+             head = head.next;
         }
         return true;
     }
