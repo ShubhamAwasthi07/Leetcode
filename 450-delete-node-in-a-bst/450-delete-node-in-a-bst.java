@@ -14,38 +14,47 @@
  * }
  */
 class Solution {
+    
     public int findMin(TreeNode root){
-        if(root.left== null) return root.val;
+        if(root.left == null)
+            return root.val;
         
         return findMin(root.left);
     }
-    public TreeNode deleteNode(TreeNode root, int val) {
+    public TreeNode deleteNode(TreeNode root, int key) {
         
-        if(root == null) return root;
+        if(root == null)
+            return root;
         
-        else if(root.val == val){
+        else if(root.val == key){
             
-            // case 1
-            if(root.left == null && root.right == null)
+            //case 1
+            if(root.left == null && root.right == null){
                 return null;
+            }
             
-            // case2
-            if(root.left == null || root.right == null){
+            //case 2 
+            else if(root.left == null || root.right == null){
+                
                 if(root.left == null)
                     return root.right;
-            
-                return root.left;
+                
+                else
+                    return root.left;
             }
+            //case 3
+            int inorder_succ = findMin(root.right);
+            root.val = inorder_succ;
+            root.right = deleteNode(root.right , inorder_succ);
             
-            // case3
-            else {
-                int preorderSucc = findMin(root.right);
-                root.val = preorderSucc;
-                root.right = deleteNode(root.right , preorderSucc);
-            }
-        }
-        else if(val > root.val) root.right = deleteNode(root.right , val);
-        else root.left = deleteNode(root.left , val);
+        } 
+        
+    
+        else if(root.val > key)
+             root.left = deleteNode(root.left , key);
+        else
+           root.right =  deleteNode(root.right , key);
+        
         return root;
     }
 }
