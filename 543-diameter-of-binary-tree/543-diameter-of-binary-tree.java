@@ -12,14 +12,14 @@
  *         this.right = right;
  *     }
  * }
- 
  */
 class Solution {
     int ans = 0;
     public int depth(TreeNode root){
         
-        if(root == null) 
+        if(root == null)
             return 0;
+        
         int left = depth(root.left);
         int right = depth(root.right);
         ans = Math.max(ans , left + right);
@@ -27,9 +27,9 @@ class Solution {
         return 1 + Math.max(left , right);
     }
     public int diameterOfBinaryTree(TreeNode root) {
-          depth(root);
+        
+        depth(root);
         
         return ans;
-        
     }
 }
