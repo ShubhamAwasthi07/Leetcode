@@ -10,7 +10,8 @@
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         
-        if(root == null) return root;
+        if(root == null)
+            return root;
         
         if(root == p || root == q)
             return root;
@@ -21,8 +22,8 @@ class Solution {
         if(left != null && right != null)
             return root;
         
-        if(left == null) return right;
-        
+        if(left == null)
+            return right;
         return left;
     }
 }
