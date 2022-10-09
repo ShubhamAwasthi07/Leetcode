@@ -15,7 +15,7 @@
  
  */
 class Solution {
-     int ans = 0;
+    int ans = 0;
     public int depth(TreeNode root){
         
         if(root == null) 
