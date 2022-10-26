@@ -28,9 +28,8 @@ public class Solution {
                 p2 = p2.next;
             }
             else{
-                p2 = headA;   
+                p2 = headA;
             }
-        
         }
         return p1;
     }
