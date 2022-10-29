@@ -3,10 +3,11 @@ class Solution {
         
         Arrays.sort(nums);
         int n = nums.length;
+        int target = 0;
+        
         List<List<Integer>> ans = new ArrayList<>();
         if(n < 3)
             return ans;
-        int target = 0;
         
         for(int i = 0 ; i < n ; i++){
             if(i > 0 && nums[i-1] == nums[i])
@@ -18,15 +19,14 @@ class Solution {
             
             while(start < end){
                 int sum = nums[start] + nums[end];
-                
                 if(sum == reTarget){
                     ans.add(Arrays.asList(nums[i] , nums[start] , nums[end]));
                     start++;
                     end--;
                     
+                    
                     while(start < end && nums[start] == nums[start - 1])
                         start++;
-                    
                     while(start < end && nums[end] == nums[end + 1])
                         end--;
                 }
