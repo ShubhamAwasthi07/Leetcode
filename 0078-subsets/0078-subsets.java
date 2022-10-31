@@ -12,6 +12,7 @@ class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         
         List<List<Integer>> ans = new ArrayList<>();
+        Arrays.sort(nums);
         backTrack(ans , new ArrayList<>() , nums , 0);
         return ans;
         
