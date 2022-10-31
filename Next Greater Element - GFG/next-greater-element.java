@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 /*package whatever //do not write package name here */
 
 import java.util.*;
@@ -25,26 +25,27 @@ class GFG {
 
 
 
+
 // } Driver Code Ends
 
 
 class Solution
 {
     //Function to find the next greater element for each element of the array.
-    public static long[] nextLargerElement(long[] arr, int n)
+    public static long[] nextLargerElement(long[] nums, int n)
     { 
         // Your code here
-       long[] output = new long[n];
-       Arrays.fill(output , -1);
-       Stack<Integer> st = new Stack<>();
-       
-       for(int i = 0; i < n; i++){
-           while(!st.empty() && arr[i] > arr[st.peek()]){
-               output[st.peek()] = arr[i];
-               st.pop();
-           }
-           st.push(i);
-       }
-       return output;
+        long[] output = new long[n];
+        Arrays.fill(output , -1);
+        
+        Stack<Integer> st = new Stack<>();
+        for(int i = 0 ; i < n ; i++){
+            while(!st.isEmpty() && nums[i] > nums[st.peek()]){
+                output[st.peek()] = nums[i];
+                st.pop();
+            }
+            st.push(i);
+        }
+        return output;
     } 
 }
