@@ -8,7 +8,7 @@ class Solution {
             hm.put(nums[i] , hm.getOrDefault(nums[i] , 0) + 1);
         }
         int max = 0;
-        for(Integer val : hm.keySet()){
+        for(int val : hm.keySet()){
             if(hm.get(val) > Math.floor(n/2)){
                 max = Math.max(max , val);
             }
