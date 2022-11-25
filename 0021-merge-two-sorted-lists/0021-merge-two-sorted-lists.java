@@ -27,8 +27,11 @@ class Solution {
             dt = dt.next;
         }
         
-        if(list1 != null) dt.next = list1;
-        if(list2 != null) dt.next = list2;
+        if(list1 != null)
+            dt.next = list1;
+        
+        if(list2 != null)
+            dt.next = list2;
         
         return dh.next;
     }
