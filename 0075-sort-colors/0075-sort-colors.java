@@ -16,15 +16,16 @@ class Solution {
                 countTwo++;   
         }
         
-        for(int i = 0 ; i < n ; i++){
-            if(countZero-- > 0)
-                nums[i] = 0;
-            else if(countOne-- > 0)
-                nums[i] = 1;
-            
-            else 
-                nums[i] = 2;
-        }
+        int k = 0;
+        
+        while(countZero-- > 0)
+            nums[k++] = 0;
+        
+        while(countOne-- > 0)
+            nums[k++] = 1;
+        
+        while(countTwo-- > 0)
+            nums[k++] = 2;
     }
         
 }
