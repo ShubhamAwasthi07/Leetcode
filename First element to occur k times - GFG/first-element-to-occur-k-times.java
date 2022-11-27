@@ -32,9 +32,8 @@ class Solution
         for(int i = 0 ; i < n ; i++){
             hm.put(a[i] , hm.getOrDefault(a[i] , 0) + 1);
             
-            if(hm.get(a[i]) == k){
+            if(hm.get(a[i]) == k)
                 return a[i];
-            }
         }
         return -1;
     } 
