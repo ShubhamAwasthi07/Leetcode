@@ -9,9 +9,8 @@ class Solution {
         
         int count = 0;
         for(int val : hm.keySet()){
-            if((k > 0 && hm.containsKey(val + k)) || (k == 0 && hm.get(val) > 1)){
-                count++;
-            }
+            if((k > 0 && hm.containsKey(k + val) || (k == 0 && hm.get(val) > 1)))
+               count++;
         }
         return count;
     }
