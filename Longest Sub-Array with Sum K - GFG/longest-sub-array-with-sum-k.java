@@ -52,23 +52,22 @@ class Solution{
     // Function for finding maximum and value pair
     public static int lenOfLongSubarr (int nums[], int n, int k) {
         //Complete the function
-        int len = 0;
         int sum = 0;
+        int len = 0;
+        // int count = 0;
         Map<Integer , Integer> hm = new HashMap<>();
         for(int i = 0 ; i < n ; i++){
             sum = sum + nums[i];
             
-            if(sum == k){
-                len = i+1;
-            }
-            
+            if(sum == k)
+                len = i + 1;
+                
             else if(hm.containsKey(sum - k)){
                 len = Math.max(len , i - hm.get(sum - k));
             }
             
-            if(!hm.containsKey(sum)){
+            if(!hm.containsKey(sum))
                 hm.put(sum , i);
-            }
         }
         return len;
     }
