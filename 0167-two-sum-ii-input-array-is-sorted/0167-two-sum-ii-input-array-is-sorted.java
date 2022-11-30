@@ -7,14 +7,15 @@ class Solution {
         
         while(start < end){
             int sum = numbers[start] + numbers[end];
-            if(sum == target){
+            
+            if(sum == target)
                 return new int[]{start + 1 , end + 1};
-            }
-            else if(sum > target){
-                end--;
-            }
-            else
+            
+            else if(sum < target)
                 start++;
+            
+            else
+                end--;
         }
         return new int[]{-1 , -1};
     }
