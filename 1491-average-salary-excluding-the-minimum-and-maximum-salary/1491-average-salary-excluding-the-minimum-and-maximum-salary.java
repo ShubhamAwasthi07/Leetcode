@@ -7,9 +7,9 @@ class Solution {
         for(int i = 1 ; i < n - 1 ; i++){
             sum = sum + salary[i];
             count++;
-            System.out.println(sum);
+            // System.out.println(sum);
         }
-        System.out.print(sum);
+        // System.out.print(sum);
         double avg = (sum) /count ;
         
         return avg;
